@@ -7,9 +7,10 @@
 Translate natural-language requests into structured function calls using
 Qwen/Qwen3-0.6B and constrained decoding.
 
-This repository currently contains a scaffold only. Python modules, the
-Makefile, and pyproject.toml are intentionally empty for manual implementation.
-The input JSON files contain empty arrays and must be populated before testing.
+The command-line interface and JSON file reader are implemented. Dependencies
+are configured with uv, and the provided SDK and sample inputs are included.
+Model inference, schema validation, constrained decoding, output writing,
+and the Makefile remain to be implemented.
 Replace <login1> above with your 42 login.
 
 ## Architecture
@@ -26,16 +27,17 @@ Replace <login1> above with your 42 login.
 | src/decoder.py | Token generation, logit masking, and termination. |
 | src/pipeline.py | Coordinate request processing and result validation. |
 
-The provided SDK must be copied into llm_sdk/ beside src/.
+The provided SDK is installed as a local workspace package in llm_sdk/.
 Local development tests belong in tests/ and are excluded from Git.
 Generated results belong in data/output/ and are excluded from Git.
 
 ## Instructions
 
-Pending implementation: configure dependencies with uv and generate uv.lock.
+Run `uv sync` from the repository root to install dependencies.
 The required execution interface is `uv run python -m src`, with optional
 `--functions_definition`, `--input`, and `--output` arguments.
-This command does not process requests yet.
+The command currently reads both JSON inputs and reports read errors without
+a traceback. It does not process requests or generate an output file yet.
 
 The Makefile must later provide install, run, debug, clean, and lint targets.
 
@@ -64,11 +66,12 @@ catalogs, argument extraction, error handling, and performance checks.
 
 ## Example Usage
 
-To be completed after the command-line interface is implemented.
+Run `uv run python -m src` to read the default input files, or
+`uv run python -m src --help` to view the available options.
 
 ## Resources
 
 - Call Me Maybe subject, version 1.7.
-- AI assistance: subject explanation, architecture planning, and creation of
-  the initial scaffold. Python implementation has not been generated.
+- AI assistance: subject explanation, architecture planning, scaffolding,
+  guided CLI and JSON reader implementation, error handling, and verification.
 - Add documentation and references consulted during implementation.
