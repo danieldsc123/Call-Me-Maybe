@@ -10,7 +10,11 @@ Qwen/Qwen3-0.6B and constrained decoding.
 The command-line interface, JSON file reader, and Pydantic input validation are
 implemented. Empty function catalogs and duplicate function names are rejected. Dependencies
 are configured with uv, and the provided SDK and sample inputs are included.
-Model inference, output schema validation, constrained decoding, output writing,
+Prompt construction, the SDK model loader, and a logit masking helper are also
+implemented. The loader has been exercised manually with Qwen/Qwen3-0.6B;
+token encoding, decoding, and next-token logits were explored through the public SDK.
+The masking helper rejects empty allowed-token sets and out-of-range token IDs.
+Model inference integration, output schema validation, constrained decoding, output writing,
 and the Makefile remain to be implemented.
 Replace <login1> above with your 42 login.
 
@@ -29,6 +33,8 @@ Replace <login1> above with your 42 login.
 | src/pipeline.py | Coordinate request processing and result validation. |
 
 The provided SDK is installed as a local workspace package in llm_sdk/.
+Mypy is configured to locate that package and skip analysis of its supplied
+implementation; application modules remain checked.
 Local development tests belong in tests/ and are excluded from Git.
 Generated results belong in data/output/ and are excluded from Git.
 

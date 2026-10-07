@@ -22,3 +22,10 @@ dev = [
     "flake8>=7.4.1",
     "mypy>=2.3.1",
 ]
+
+[tool.mypy]
+mypy_path = "llm_sdk"
+
+[[tool.mypy.overrides]]
+module = "llm_sdk"
+follow_imports = "skip"
