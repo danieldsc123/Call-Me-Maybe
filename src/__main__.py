@@ -2,21 +2,24 @@ import sys
 
 from src.cli import parse_args
 from src.file_io import read_json
+from src.schemas import validate_functions, validate_prompts
 
 
 def main() -> int:
-    """Lê as entradas e retorna zero no sucesso ou um em caso de erro."""
+    """Lê as entradas, valida pedidos e retorna o código de saída."""
     args = parse_args()
     try:
-        read_json(args.functions_definition)
-        read_json(args.input)
+        functions_data = read_json(args.functions_definition)
+        functions = validate_functions(functions_data)
+        data = read_json(args.input)
+        prompts = validate_prompts(data)
     except ValueError as exc:
         print(f"Erro: {exc}", file=sys.stderr)
         return 1
 
     print(
-        "Arquivos JSON lidos com sucesso. "
-        "Processamento ainda não implementado."
+        f"{len(functions)} funções e {len(prompts)} pedidos "
+        "validados com sucesso. Processamento ainda não implementado."
     )
     return 0
 

@@ -7,9 +7,10 @@
 Translate natural-language requests into structured function calls using
 Qwen/Qwen3-0.6B and constrained decoding.
 
-The command-line interface and JSON file reader are implemented. Dependencies
+The command-line interface, JSON file reader, and Pydantic input validation are
+implemented. Empty function catalogs and duplicate function names are rejected. Dependencies
 are configured with uv, and the provided SDK and sample inputs are included.
-Model inference, schema validation, constrained decoding, output writing,
+Model inference, output schema validation, constrained decoding, output writing,
 and the Makefile remain to be implemented.
 Replace <login1> above with your 42 login.
 
@@ -36,7 +37,7 @@ Generated results belong in data/output/ and are excluded from Git.
 Run `uv sync` from the repository root to install dependencies.
 The required execution interface is `uv run python -m src`, with optional
 `--functions_definition`, `--input`, and `--output` arguments.
-The command currently reads both JSON inputs and reports read errors without
+The command currently reads and validates both JSON inputs and reports errors without
 a traceback. It does not process requests or generate an output file yet.
 
 The Makefile must later provide install, run, debug, clean, and lint targets.
@@ -61,7 +62,9 @@ To be recorded during development.
 
 ## Testing Strategy
 
-To be implemented: input validation, JSON and schema constraints, unseen function
+Input validation has been checked with valid inputs, missing fields, wrong types,
+empty function catalogs, and duplicate function names.
+To be implemented: JSON and schema constraints, unseen function
 catalogs, argument extraction, error handling, and performance checks.
 
 ## Example Usage
