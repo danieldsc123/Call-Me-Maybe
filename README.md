@@ -78,6 +78,17 @@ catalogs, argument extraction, error handling, and performance checks.
 Run `uv run python -m src` to read the default input files, or
 `uv run python -m src --help` to view the available options.
 
+The original English examples are preserved. To use the 11 additional
+Portuguese examples covering all five functions, run:
+
+```sh
+uv run python -m src --input data/input/function_calling_tests_pt.json
+```
+
+These examples include accented text. Internal model instructions and the
+function catalog remain in English. The current program only reads and
+validates the inputs; model accuracy in Portuguese has not been measured yet.
+
 ## Resources
 
 - Call Me Maybe subject, version 1.7.

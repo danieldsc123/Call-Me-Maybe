@@ -1,0 +1,35 @@
+[
+  {
+    "prompt": "Qual é a soma de 2 e 3?"
+  },
+  {
+    "prompt": "Some 265 e 345."
+  },
+  {
+    "prompt": "Cumprimente Shrek."
+  },
+  {
+    "prompt": "Dê uma saudação para João."
+  },
+  {
+    "prompt": "Inverta o texto 'olá'."
+  },
+  {
+    "prompt": "Inverta o texto 'ação e coração'."
+  },
+  {
+    "prompt": "Qual é a raiz quadrada de 16?"
+  },
+  {
+    "prompt": "Calcule a raiz quadrada de 144."
+  },
+  {
+    "prompt": "Substitua todos os números em 'Olá 34 tenho 233 anos' por 'NÚMEROS'."
+  },
+  {
+    "prompt": "Substitua todas as vogais em 'Programar é divertido' por asteriscos, incluindo as vogais acentuadas."
+  },
+  {
+    "prompt": "Substitua a palavra 'gato' por 'cão' em 'O gato sentou no tapete com outro gato'."
+  }
+]
